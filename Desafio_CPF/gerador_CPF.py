@@ -1,3 +1,7 @@
+# 
+#  esse programa gera um numero de CPF válido
+#
+
 from random import randint
 numero = str(randint(100000000, 999999999))
 
