@@ -26,8 +26,13 @@ with open('imagem.png', 'rb') as img:
     msg.attach(img)
 
 with smtplib.SMTP(host='smtp.gmail.com', port=587) as smtp:
-    smtp.ehlo()
-    smtp.starttls()
-    smtp.login(email, senha )
-    smtp.send_message(msg)
-    print('Email enviado com sucesso.')
+    try:
+        smtp.ehlo()
+        smtp.starttls()
+        smtp.login(email, senha )
+        smtp.send_message(msg)
+        print('Email enviado com sucesso.')
+    except Exception as e:
+        print('Email não enviado...')
+        print('Erro: ', e)
+        
